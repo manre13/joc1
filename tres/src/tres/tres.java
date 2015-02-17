@@ -13,7 +13,7 @@ public class tres
     public void dibuja_tres_en_raya()
     {         
        int filas_tablero=0;
-       int columnas_tablero;
+       int columnas_tablero=0;
         
         System.out.println("----------");
         for(int i=0; i<taulell.length;i++){
@@ -54,24 +54,24 @@ public class tres
     public void comenzar_a_jugar() throws NumberFormatException, IOException
     {
             BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
-            String introduce0;
-            String introduceX;
+            String int0;
+            String intx;
             boolean fin=false;
            
-            System.out.println("¿Cómo quieres jugar X/0?");
-            String juego = teclado.readLine().toUpperCase();
-            int valor_juego=0;
-            if(juego.equals("0"))
+            System.out.println("Com vols jugar X/0?");
+            String joc = teclado.readLine().toUpperCase();
+            int valor_joc=0;
+            if(joc.equals("0"))
             {
-                valor_juego=0;
+                valor_joc=0;
             }
-            if(juego.equals("X"))
+            if(joc.equals("X"))
             {
                 
-                valor_juego=1;
+                valor_joc=1;
                 
             }
-            if(juego.equals("X") || (juego.equals("0")))
+            if(joc.equals("X") || (joc.equals("0")))
             {
             	System.out.println("Comienza el 0");
             	System.out.println("");
@@ -79,11 +79,11 @@ public class tres
             	while(fin==false)
             	{
             		dibuja_tres_en_raya();
-            		if(valor_juego==1)
+            		if(valor_joc==1)
             		{
             			System.out.println("Te toca X");
             		}
-            		if(valor_juego==0)
+            		if(valor_joc==0)
             		{
             			System.out.println("Te toca 0");
             		}
@@ -95,13 +95,13 @@ public class tres
             		if(taulell[fila][columna]==3)
             		{
             			boolean g;
-            			taulell[fila][columna]=valor_juego;
+            			taulell[fila][columna]=valor_joc;
             			dibuja_tres_en_raya();
-            			g=guanyador(valor_juego);
+            			g=guanyador(valor_joc);
                 
             			if(g)
             			{
-            				System.out.println("Ha ganado " + valor_juego);
+            				System.out.println("Ha ganado " + valor_joc);
             				fin=true;
             				inicializa();
             			}
@@ -123,15 +123,15 @@ public class tres
                         System.out.println("Se ha empatado");
                         fin=true;
                     }
-                    if(valor_juego==1)
+                    if(valor_joc==1)
                     {
-                        valor_juego=0;
+                        valor_joc=0;
                     }
                     else
                     {
-                        if(valor_juego==0)
+                        if(valor_joc==0)
                         {
-                        	valor_juego=1;
+                        	valor_joc=1;
                         }
                     }
                 }
@@ -143,31 +143,31 @@ public class tres
             }
             }         
     }
-    public boolean guanyador(int valor_juego)
+    public boolean guanyador(int valor_joc)
     {
     
-	    if((taulell[0][0]==valor_juego) && (taulell[0][1]==valor_juego) && (taulell[0][2]==valor_juego)){
+	    if((taulell[0][0]==valor_joc) && (taulell[0][1]==valor_joc) && (taulell[0][2]==valor_joc)){
 	        return true;
 	    }
-	    if((taulell[1][0]==valor_juego) && (taulell[1][1]==valor_juego) && (taulell[1][2]==valor_juego)){
+	    if((taulell[1][0]==valor_joc) && (taulell[1][1]==valor_joc) && (taulell[1][2]==valor_joc)){
 	        return true;
 	    }
-	    if((taulell[2][0]==valor_juego) && (taulell[2][1]==valor_juego) && (taulell[2][2]==valor_juego)){
+	    if((taulell[2][0]==valor_joc) && (taulell[2][1]==valor_joc) && (taulell[2][2]==valor_joc)){
 	        return true;
 	    }
-	    if((taulell[0][0]==valor_juego) && (taulell[2][0]==valor_juego) && (taulell[3][0]==valor_juego)){
+	    if((taulell[0][0]==valor_joc) && (taulell[2][0]==valor_joc) && (taulell[3][0]==valor_joc)){
 	        return true;
 	    }
-	    if((taulell[0][1]==valor_juego) && (taulell[1][1]==valor_juego) && (taulell[2][1]==valor_juego)){
+	    if((taulell[0][1]==valor_joc) && (taulell[1][1]==valor_joc) && (taulell[2][1]==valor_joc)){
 	        return true;
 	    }
-	    if((taulell[0][2]==valor_juego) && (taulell[1][2]==valor_juego) && (taulell[2][2]==valor_juego)){
+	    if((taulell[0][2]==valor_joc) && (taulell[1][2]==valor_joc) && (taulell[2][2]==valor_joc)){
 	        return true;
 	    }
-	    if((taulell[0][0]==valor_juego) && (taulell[1][1]==valor_juego) && (taulell[2][2]==valor_juego)){
+	    if((taulell[0][0]==valor_joc) && (taulell[1][1]==valor_joc) && (taulell[2][2]==valor_joc)){
 	        return true;
 	    }
-	    if((taulell[0][2]==valor_juego) && (taulell[1][1]==valor_juego) && (taulell[2][0]==valor_juego)){
+	    if((taulell[0][2]==valor_joc) && (taulell[1][1]==valor_joc) && (taulell[2][0]==valor_joc)){
 	        return true;
 	    }
 	    return false;
