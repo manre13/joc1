@@ -15,11 +15,14 @@ public class tres
        int filas_tablero=0;
        int columnas_tablero=0;
         
-        System.out.println("----------");
-        for(int i=0; i<taulell.length;i++){
-            for(int j=0; j<taulell.length;j++){
-               
-                if(taulell[i][j]==0){                    
+       System.out.println("-JOC TRES EN RALLA-");
+       System.out.println("----------");
+       for(int i=0; i<taulell.length;i++)
+       {
+            for(int j=0; j<taulell.length;j++)
+            {
+                if(taulell[i][j]==0)
+                {                    
                     System.out.print("| " + taulell[i][j] + " ");
                 }
                 if (taulell[i][j]==1)
@@ -36,7 +39,7 @@ public class tres
             System.out.print("|");
             System.out.println("");
         }
-        System.out.println("-------------");
+        System.out.println("----------");
         
     }
 
@@ -53,24 +56,35 @@ public class tres
 
     public void joc() throws NumberFormatException, IOException
     {
-            BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+            BufferedReader teclat = new BufferedReader(new InputStreamReader(System.in));
             String int0;
             String intx;
             boolean fin=false;
            
             System.out.println("COM VOLS JUGAR: X/0?");
-            String joc = teclado.readLine().toUpperCase();
+            String joc = teclat.readLine().toUpperCase();
             int valor_joc=0;
-            if(joc.equals("0"))
+            
+            while (joc != "0" || joc != "X")
             {
-                valor_joc=0;
-            }
-            if(joc.equals("X"))
-            {
+            	System.out.println("Valor incorrecte: X/0");
+            	joc = teclat.readLine().toUpperCase();
+            	
+            	if(joc.equals("0"))
+                {
+                    valor_joc=0;
+                    break;
+                }
+                if(joc.equals("X"))
+                {
+                    valor_joc=1;
+                    break;
+                }
                 
-                valor_joc=1;
-                
+               
             }
+           
+            
             if(joc.equals("X") || (joc.equals("0")))
             {
             	System.out.println("Comienza el 0");
@@ -89,9 +103,51 @@ public class tres
             		}
             		System.out.println("INTRODUEIX LES COORDENADES: (0,0) ");
             		System.out.println("INTRODUEIX LA FILA:");
-            		int fila= Integer.parseInt(teclado.readLine());
+            		int fila= Integer.parseInt(teclat.readLine());
+            		while (fila != 0 || fila != 1 || fila != 2)
+                    {
+                    	System.out.println("Valor incorrecte: 0, 1, 2");
+                    	fila= Integer.parseInt(teclat.readLine());
+                    	
+                    	if(fila == 0)
+                        {
+                            fila=0;
+                            break;
+                        }
+                    	if(fila == 1)
+                        {
+                            fila=1;
+                            break;
+                        }
+                    	if(fila == 2)
+                        {
+                            fila=2;
+                            break;
+                        }
+                    }
             		System.out.println("INTRODUEIX LA COLUMNA:");
-            		int columna= Integer.parseInt(teclado.readLine());
+            		int columna= Integer.parseInt(teclat.readLine());
+            		while (columna != 0 || columna != 1 || columna != 2)
+                    {
+                    	System.out.println("Valor incorrecte: 0, 1, 2");
+                    	columna= Integer.parseInt(teclat.readLine());
+                    	
+                    	if(columna == 0)
+                        {
+                    		columna=0;
+                            break;
+                        }
+                    	if(columna == 1)
+                        {
+                    		columna=1;
+                            break;
+                        }
+                    	if(columna == 2)
+                        {
+                    		columna=2;
+                            break;
+                        }
+                    }
             		if(taulell[fila][columna]==3)
             		{
             			boolean g;
@@ -101,24 +157,24 @@ public class tres
                 
             			if(g)
             			{
-            				System.out.println("HHA GUANYAT: " + valor_joc);
+            				System.out.println("HA GUANYAT: " + valor_joc);
             				fin=true;
             				inici();
             			}
             			else 
             			{
-            				int estado_empate=0;
+            				int empat=0;
             				for(int i=0;i<=2;i++)
             				{
             					for(int j=0;j<=2;j++)
             					{
                             if((taulell[i][j]==0) || (taulell[i][j]==1))
                             {
-                                estado_empate=estado_empate+1;
+                                empat=empat+1;
                             }
                         }
                     }
-                    if(estado_empate==9)
+                    if(empat==9)
                     {
                         System.out.println("EMPAT!");
                         fin=true;
