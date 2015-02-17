@@ -8,26 +8,26 @@ import java.util.logging.Logger;
 
 public class tres 
 {
-    int tablero[][]= new int [3][3];
+    int taulell[][]= new int [3][3];
     
     public void dibuja_tres_en_raya()
     {         
        int filas_tablero=0;
        int columnas_tablero;
         
-        System.out.println("-------------");
-        for(int i=0; i<tablero.length;i++){
-            for(int j=0; j<tablero.length;j++){
+        System.out.println("----------");
+        for(int i=0; i<taulell.length;i++){
+            for(int j=0; j<taulell.length;j++){
                
-                if(tablero[i][j]==0){                    
-                    System.out.print("| " + tablero[i][j] + " ");
+                if(taulell[i][j]==0){                    
+                    System.out.print("| " + taulell[i][j] + " ");
                 }
-                if (tablero[i][j]==1)
+                if (taulell[i][j]==1)
                 {
                      System.out.print("| " + "X" + " ");
                     
                 }
-                if (tablero[i][j]==3)
+                if (taulell[i][j]==3)
                 {
                      System.out.print("|" + "  ");
                     
