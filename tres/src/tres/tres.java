@@ -10,7 +10,7 @@ public class tres
 {
     int taulell[][]= new int [3][3];
     
-    public void dibuja_tres_en_raya()
+    public void dibuixa()
     {         
        int filas_tablero=0;
        int columnas_tablero=0;
@@ -40,7 +40,7 @@ public class tres
         
     }
 
-    public void inicializa()
+    public void inici()
     {
     	for(int i=0; i<taulell.length;i++)
     	{
@@ -51,14 +51,14 @@ public class tres
     	}
     }
 
-    public void comenzar_a_jugar() throws NumberFormatException, IOException
+    public void joc() throws NumberFormatException, IOException
     {
             BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
             String int0;
             String intx;
             boolean fin=false;
            
-            System.out.println("Com vols jugar X/0?");
+            System.out.println("COM VOLS JUGAR: X/0?");
             String joc = teclado.readLine().toUpperCase();
             int valor_joc=0;
             if(joc.equals("0"))
@@ -78,7 +78,7 @@ public class tres
             
             	while(fin==false)
             	{
-            		dibuja_tres_en_raya();
+            		dibuixa();
             		if(valor_joc==1)
             		{
             			System.out.println("Te toca X");
@@ -87,23 +87,23 @@ public class tres
             		{
             			System.out.println("Te toca 0");
             		}
-            		System.out.println("Introduce coordenadas de posición: (0,0) ");
-            		System.out.println("Introduce la fila");
+            		System.out.println("INTRODUEIX LES COORDENADES: (0,0) ");
+            		System.out.println("INTRODUEIX LA FILA:");
             		int fila= Integer.parseInt(teclado.readLine());
-            		System.out.println("Introduce la columna");
+            		System.out.println("INTRODUEIX LA COLUMNA:");
             		int columna= Integer.parseInt(teclado.readLine());
             		if(taulell[fila][columna]==3)
             		{
             			boolean g;
             			taulell[fila][columna]=valor_joc;
-            			dibuja_tres_en_raya();
+            			dibuixa();
             			g=guanyador(valor_joc);
                 
             			if(g)
             			{
-            				System.out.println("Ha ganado " + valor_joc);
+            				System.out.println("HHA GUANYAT: " + valor_joc);
             				fin=true;
-            				inicializa();
+            				inici();
             			}
             			else 
             			{
@@ -120,7 +120,7 @@ public class tres
                     }
                     if(estado_empate==9)
                     {
-                        System.out.println("Se ha empatado");
+                        System.out.println("EMPAT!");
                         fin=true;
                     }
                     if(valor_joc==1)
@@ -138,7 +138,7 @@ public class tres
             }
             else
             {
-                System.out.println("No puede jugar, ya está usado");
+                System.out.println("NO POTS JUGAR, YA ESTA USAT");
             }
             }
             }         
@@ -177,8 +177,8 @@ public class tres
     {
 	    tres tresenraya= new tres();
 	    
-	    tresenraya.inicializa();
-	    tresenraya.dibuja_tres_en_raya();
-	  	tresenraya.comenzar_a_jugar();
+	    tresenraya.inici();
+	    tresenraya.dibuixa();
+	  	tresenraya.joc();
     }	
 }
